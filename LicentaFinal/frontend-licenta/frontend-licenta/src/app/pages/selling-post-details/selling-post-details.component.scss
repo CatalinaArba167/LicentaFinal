@@ -1,0 +1,115 @@
+@import "src/scss/utils/variables";
+.car-images-and-technical-details{
+  display: flex;
+  flex-direction: row;
+  gap:20px;
+}
+.car-details-container {
+  display: flex;
+  height: 120vh;
+  padding: 20vh 10vw 10vh;
+  flex-direction: column;
+  background-color: $primary-white;
+  justify-content: start;
+  vertical-align: center;
+  gap: 10vh;
+
+  .image-carousel-container {
+    width: 50vw;
+    height: 70vh;
+    margin-right: 20px;
+    position: relative;
+
+
+    .carousel-wrapper {
+      position: relative;
+      height: 100%;
+    }
+
+    .carousel-image {
+      width: 50vw;
+      height: 99%;
+      object-fit: cover;
+      display: block;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px $medium-gray;
+
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 18px;
+      padding: 10px;
+      cursor: pointer;
+      z-index: 1;
+    }
+
+    .nav-button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .nav-button:focus {
+      outline: none;
+    }
+
+    .nav-button:first-of-type {
+      left: 10px;
+    }
+
+    .nav-button:last-of-type {
+      right: 10px;
+    }
+  }
+
+  .details-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .details-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td {
+      padding: 10px;
+      border: 1px solid #e0e0e0;
+      background-color: #f9f9f9;
+    }
+
+    td:first-child {
+      width: 400px;
+    }
+  }
+}
+.back-button {
+  position: absolute;
+  top: 13vh;
+  left: 4vw;
+  width: 100px;
+  z-index: 2000000;
+  border-radius: 4px !important;
+  background-color: transparent;
+  color: $neon-orange;
+  font: normal normal 400 16px Roboto, sans-serif;
+
+
+  mat-icon {
+    font-size: 24px;
+    margin-right:0
+  }
+}

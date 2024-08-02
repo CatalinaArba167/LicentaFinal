@@ -1,0 +1,8 @@
+<app-header></app-header>
+<div class="layout-home">
+  <div class="home-image-section"></div>
+  <div class="cards-sections">
+    <app-car-offer-card *ngFor="let sellingPost of sellingPosts" [sellingPost]="sellingPost"></app-car-offer-card>
+  </div>
+</div>
+

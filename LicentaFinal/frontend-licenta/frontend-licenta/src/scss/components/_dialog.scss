@@ -1,0 +1,61 @@
+//@import "../utils/variables";
+//.mat-dialog-actions{
+//  .mat-mdc-dialog-actions.mat-mdc-dialog-actions-align-end, .mat-mdc-dialog-actions[align=end] {
+//    justify-content: space-between;
+//  }
+//}
+//
+//.mat-dialog-container {
+//  background-color: $primary-white; // Assuming $primary-white is defined in your variables
+//  border-radius: 8px; // Rounded corners
+//  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Subtle shadow
+//  padding: 20px; // Padding around the dialog content
+//}
+//
+//.mat-dialog-title {
+//  color: #333;
+//  font-size: 1.5em;
+//  font-weight: bold;
+//  padding-bottom: 1em;
+//  border-bottom: 1px solid #ccc;
+//}
+//
+//.mat-dialog-content {
+//  padding: 20px;
+//  font-size: 1.2em;
+//  color: #666;
+//  line-height: 1.5;
+//}
+//
+//.mat-dialog-actions {
+//  padding-top: 1em;
+//  border-top: 1px solid #ccc;
+//  display: flex;
+//  justify-content: space-between; // Space between buttons
+//
+//  button {
+//    border-radius: 20px; // Pill shape
+//    padding: 10px 20px; // Sufficient padding for pill shape
+//    min-width: 90px; // Ensure buttons are not too narrow
+//    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); // Button shadow for depth
+//    border: none; // Remove default border
+//
+//    &:first-child {
+//      margin-right: auto; // Pushes the first button to the left
+//    }
+//
+//    &:last-child {
+//      margin-left: auto; // Pushes the last button to the right
+//    }
+//
+//    &:hover {
+//      background-color: #0056b3;
+//      color: #fff;
+//    }
+//
+//    &:active {
+//      background-color: #004085;
+//      color: #ccc;
+//    }
+//  }
+//}

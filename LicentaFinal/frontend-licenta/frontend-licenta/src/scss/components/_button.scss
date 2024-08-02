@@ -1,0 +1,50 @@
+@import "../utils/variables";
+
+.log_in_button{
+  font: normal normal 400 1vw Roboto, sans-serif;
+  background-color: $neon-orange;
+  color: $primary-white;
+  height: 2vw;
+  border-radius: 24px;
+  width: 33%;
+  cursor: pointer;
+  &:hover {
+    background-color: $neon-orange-darker;
+    box-shadow: $hover-shadow;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+.red-button{
+  font: normal normal 400 1.5vw Roboto, sans-serif;
+  background-color: $neon-orange;
+  color: $primary-white;
+  border-radius: 24px;
+  cursor: pointer;
+  &:hover {
+    background-color: $neon-orange-darker;
+    box-shadow: $hover-shadow;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+.green-button{
+  font: normal normal 400 1.5vw Roboto, sans-serif;
+  background-color: $primary-green;
+  color: $primary-white;
+  border-radius: 24px;
+  cursor: pointer;
+  &:hover {
+    background-color: darken($primary-green,20%);
+    box-shadow: $hover-shadow;
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}

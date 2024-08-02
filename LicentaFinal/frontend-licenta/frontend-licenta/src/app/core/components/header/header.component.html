@@ -1,0 +1,19 @@
+<header class="fixed-header">
+  <div class="header-logo-container">
+    <span class="header-action-group">
+      <span class="header-action">FAVOURITES</span>
+      <span class="header-action" routerLink="/home">BUY</span>
+    </span>
+    <div class="header-logo">
+      <img src="assets/car_dealer_logo.png" alt="Car Dealer Logo" />
+    </div>
+    <span class="header-action-group">
+      <span class="header-action"  routerLink="/post">SELL</span>
+      <span class="header-action"  routerLink="/listings">MY LISTINGS</span>
+    </span>
+  </div>
+  <mat-icon class="logout-icon" (click)="navigateToChat()">chat</mat-icon>
+  <mat-icon class="logout-icon" routerLink="/profile">account_circle</mat-icon>
+  <mat-icon (click)="clickSignOut()" class="logout-icon">logout</mat-icon>
+</header>
+

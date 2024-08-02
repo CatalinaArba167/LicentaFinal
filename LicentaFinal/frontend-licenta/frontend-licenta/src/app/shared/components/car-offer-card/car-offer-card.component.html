@@ -1,0 +1,22 @@
+<div class="car-card">
+  <div class="car-image-section">
+    <img class="car-image" [src]="firstImageSrc" alt="Car Image">
+    <div class="price">{{ sellingPost.car.price }} EUR</div>
+  </div>
+
+  <div class="car-details">
+    <h3 class="model">{{ sellingPost.title }}</h3>
+
+    <ul class="specs">
+      <li><mat-icon>calendar_today</mat-icon> {{ sellingPost.car.prodYear }}</li>
+      <li><mat-icon>directions_car</mat-icon> {{ sellingPost.car.engineVolume }} <span *ngIf="sellingPost.car.isTurbo"> Turbo</span></li>
+      <li><mat-icon>speed</mat-icon> {{ sellingPost.car.mileage }}</li>
+      <li><mat-icon>build_circle</mat-icon> {{ sellingPost.car.fuelType }}</li>
+    </ul>
+
+    <button class="details-button">
+      <span class="button-text" (click)="navigateToDetails()">SEE OFFER</span>
+      <mat-icon>arrow_forward</mat-icon>
+    </button>
+  </div>
+</div>

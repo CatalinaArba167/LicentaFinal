@@ -1,0 +1,166 @@
+//@import "src/scss/utils/variables";
+//@import "src/scss/components/inputs";
+//
+//.chat-layout {
+//  height: 100vh;
+//  width: 100vw;
+//  display: flex;
+//}
+//
+//.all-conversations {
+//  height: 90vh;
+//  padding-top: 10vh;
+//  width: 30vw;
+//  background-color: $primary-black;
+//  display: flex;
+//  flex-direction: column;
+//}
+//
+//.search-section {
+//  padding: 10px;
+//  height: 10vh;
+//  background-color: $primary-black;
+//}
+//
+//.search-box {
+//  width: 100%;
+//  background-color: $primary-black;
+//  border-radius: 5px;
+//  padding: 2px 0px;
+//  margin-bottom: 10px;
+//}
+//
+//.recents-label {
+//  font: normal normal 400 14px Roboto, sans-serif;
+//  color: $primary-white;
+//  padding-left: 10px;
+//  margin-bottom: 10px;
+//}
+//
+//.recents {
+//  flex: 1;
+//  overflow-y: auto;
+//}
+//
+//.conversation-item {
+//  display: flex;
+//  align-items: center;
+//  padding: 10px;
+//  cursor: pointer;
+//  transition: background 0.3s;
+//  &:hover {
+//    background-color: $login-background-black;
+//  }
+//}
+//
+//.avatar {
+//  width: 40px;
+//  height: 40px;
+//  border-radius: 50%;
+//  margin-right: 10px;
+//}
+//
+//.conversation-info {
+//  flex: 1;
+//  color: $primary-white;
+//}
+//
+//.conversation-info h4 {
+//  margin: 0;
+//  font: normal normal 400 14px Roboto, sans-serif;
+//}
+//
+//.conversation-info p {
+//  margin: 0;
+//  font: normal normal 400 12px Roboto, sans-serif;
+//  color: $dark-gray;
+//}
+//
+//.conversation-time {
+//  font-size: 12px;
+//  color: $light-gray;
+//}
+//
+//.opened-conversation {
+//  height: 90vh;
+//  padding-top: 10vh;
+//  width: 70vw;
+//  display: flex;
+//  flex-direction: column;
+//}
+//
+//.conversation-header {
+//  display: flex;
+//  align-items: center;
+//  padding:  5px 10px;
+//  background-color: $secundary-black;
+//  border-bottom: 1px solid $login-background-black;
+//  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+//  color: $primary-white;
+//}
+//
+//.messages {
+//  flex: 1;
+//  padding: 10px;
+//  overflow-y: auto;
+//  background-color: $login-background-black;
+//}
+//
+//.message-outgoing {
+//  text-align: right;
+//}
+//
+//.message-incoming {
+//  text-align: left;
+//}
+//
+//.message-content {
+//  display: inline-block;
+//  max-width: 60%;
+//  padding: 10px;
+//  border-radius: 10px;
+//  background-color: $light-gray;
+//  color: $primary-black;
+//  margin: 5px 0;
+//}
+//
+//.message-time {
+//  font-size: 10px;
+//  color: $medium-gray;
+//  margin-top: 2px;
+//}
+//
+//.message-input {
+//  display: flex;
+//  height: min-content;
+//  align-items: center;
+//  padding: 10px 10px 0px 10px;
+//  background-color: $secundary-black;
+//  border-top: 1px solid $login-background-black;
+//  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+//}
+//
+//.message-box {
+//  display: flex;
+//  flex: 1;
+//  margin-right: 10px;
+//  background-color: $secundary-black;
+//  border-radius: 5px;
+//}
+//
+//.mat-icon {
+//  color: $primary-white;
+//  background-color: transparent;
+//}
+//.send-button{
+//  background-color: transparent;
+//  border: 0;
+//  padding-bottom:10px;
+//
+//  :hover{
+//    color: $neon-orange;
+//  }
+//  &:active {
+//    transform: translateX(1px);
+//  }
+//}

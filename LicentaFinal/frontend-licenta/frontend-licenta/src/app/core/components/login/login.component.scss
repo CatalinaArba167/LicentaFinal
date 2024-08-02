@@ -1,0 +1,117 @@
+@import "src/scss/utils/variables";
+@import "src/scss/components/button";
+@import "src/scss/components/custom-toastr";
+
+.form-container {
+  display: flex;
+  justify-content: left;
+  align-items: start;
+  height: 100vh;
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.form-wrapper {
+  display: flex;
+  margin-left: 0;
+  width: 130vw;
+  transition: transform 1.5s ease-in-out;
+}
+
+.move-left {
+  transform: translateX(-30vw);
+}
+
+.background-content {
+  width: 70vw;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0) 90%, $primary-black 100%),linear-gradient(to right, rgba(0, 0, 0, 0) 90%, $primary-black 100%), url('../../../../assets/login_page_wallpaper.jpg') no-repeat center center;
+  background-size: cover;
+  height: 100vh;
+  z-index: 1;
+}
+.header-logo {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2vh;
+
+  img {
+    height: auto;
+    max-height: 10vh;
+    width: auto;
+  }
+}
+
+.register-information,
+.login-information {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+  height: 100vh;
+  background-color: $primary-black;
+  z-index: 2;
+}
+
+.user-name-row {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+mat-card {
+  width: 25vw;
+  height: min-content;
+  background-color: $primary-black;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+}
+
+.mat-form-field {
+  width: 100%;
+  height: min-content;
+  max-height: inherit;
+}
+
+.log_in_button {
+  margin-top: 0.9vw;
+  width: 100%;
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: $neon-orange;
+    pointer-events: none;
+  }
+}
+
+.register-prompt {
+  font: normal normal 400 0.6vw Roboto, sans-serif;
+  margin-top: 0.5vw;
+  text-align: center;
+  color: $primary-white;
+  a {
+    color: $neon-orange;
+    cursor: pointer;
+    &:hover {
+      text-decoration: underline;
+      color: $neon-orange-darker;
+    }
+  }
+}
+.input-error {
+  color: $error-red;
+  font-size: 0.8vw;
+  text-align: center;
+  margin-top: 0.4vw;
+}
+
+
+

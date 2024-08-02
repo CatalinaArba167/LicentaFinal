@@ -1,0 +1,130 @@
+@import "../utils/variables";
+
+mat-form-field {
+  &.mat-mdc-form-field {
+    display: block;
+
+  }
+
+  .mdc-text-field--filled:not(.mdc-text-field--disabled):hover .mdc-line-ripple::after,
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+    border-bottom-color: $neon-orange;
+  }
+
+
+  &.mat-focused {
+    mat-label {
+      color: $neon-orange;
+    }
+
+    .mat-mdc-floating-label {
+      color: $neon-orange;
+    }
+  }
+
+  .mat-icon {
+    color: $primary-white;
+    font-size: 1.2vw;
+    margin-bottom: 0;
+    margin-top: 0;
+    align-self: center;
+
+  }
+
+  .mat-mdc-form-field-infix {
+    min-height: 0px !important;
+    padding:0;
+  }
+
+  .mat-mdc-text-field-wrapper:not(.mdc-text-field--outlined) .mat-mdc-form-field-infix {
+    padding-top: 25px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+  }
+
+  .mat-mdc-form-field-icon-prefix > .mat-icon, .mat-mdc-form-field-icon-suffix > .mat-icon {
+    padding-top: 15px;
+    padding-bottom: 0px;
+    padding-right: 0px;
+
+  }
+
+
+  // Style adjustments for when the form field is autofilled by the browser
+  .mat-form-field-autofill-control {
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 5vw $login-background-black inset;
+      -webkit-text-fill-color: $primary-white !important;
+      caret-color: $primary-white;
+    }
+  }
+
+  //the big dark rectangular
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: $login-background-black;
+    font: normal normal 400 0.6vw Roboto, sans-serif;
+    border-radius: 15px;
+    margin-top: 0;
+    padding: 1px 1px;
+
+
+    // Target Chrome, Safari and Opera autofill
+    .mdc-text-field__input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 50vw $login-background-black inset;
+      -webkit-text-fill-color: $primary-white !important;
+      caret-color: $primary-white;
+      transition: background-color 5000s ease-in-out 0s; // Force the color transition to delay a very long time
+    }
+
+    // Target Firefox autofill
+    .mdc-text-field__input:-moz-autofill {
+      box-shadow: 0 0 0px 50vw $login-background-black inset;
+      text-fill-color: $primary-white !important;
+      caret-color: $primary-white;
+    }
+
+    // Target Microsoft Edge autofill
+    .mdc-text-field__input:-ms-autofill {
+      box-shadow: 0 0 0px 50vw $login-background-black inset;
+      text-fill-color: $primary-white !important;
+      caret-color: $primary-white;
+    }
+
+    .mdc-text-field__input {
+      caret-color: $primary-white;
+      font: normal normal 400 1.2vw Roboto, sans-serif;
+      color: $primary-white;
+
+      &::placeholder {
+        color: $primary-white; // Placeholder color when the input is not focused
+        font: normal normal 400 1.2vw Roboto, sans-serif;
+      }
+
+    }
+  }
+
+  .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input::placeholder {
+    font: normal normal 400 1.2vw Roboto, sans-serif;
+    color: $primary-white;
+
+    .mdc-text-field__input {
+      background-color: $login-background-black;
+      color: $primary-white;
+      margin-bottom: 0px;
+    }
+  }
+
+  mat-error {
+    color: $error-red;
+    font: normal normal 400 0.8vw Roboto, sans-serif;
+  }
+
+}
+
+mat-label {
+  color: $primary-white;
+  font: normal normal 400 1.2vw Roboto, sans-serif;
+}
+
+
+

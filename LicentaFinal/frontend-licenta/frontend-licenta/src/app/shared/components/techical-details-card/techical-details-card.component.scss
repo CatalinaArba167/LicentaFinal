@@ -1,0 +1,45 @@
+@import "src/scss/utils/variables";
+@import "src/scss/components/button";
+
+
+.techical-details-section {
+  width: 74vw;
+  height: 30vh;
+  box-shadow: 0 2px 8px $medium-gray;
+  font: normal normal 400 24px Roboto, sans-serif;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.specs {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr 0.6fr;
+  column-gap: 1vw;
+  row-gap: 16px;
+  list-style: none;
+  padding: 20px;
+  margin: 8px 0;
+  justify-content: center;
+  vertical-align: center;
+  color: $medium-gray;
+
+  ul {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+
+    li {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+
+      mat-icon {
+        margin-right: 8px;
+        color: $medium-gray;
+      }
+    }
+  }
+
+}

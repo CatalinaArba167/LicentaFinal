@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="car-details-container">
+  <button mat-fab class="back-button" (click)="navigateBack()">
+    <mat-icon>arrow_back</mat-icon> BACK
+  </button>
+<div class="car-images-and-technical-details">
+  <div class="image-carousel-container">
+    <div class="carousel-wrapper">
+      <button class="nav-button" (click)="prevImage()">&#10094;</button>
+      <img [src]="processedPictures[currentImageIndex]" alt="Car Image" class="carousel-image">
+      <button class="nav-button" (click)="nextImage()">&#10095;</button>
+    </div>
+  </div>
+  <app-car-details-card
+    [sellingPost]="this.sellingPost">
+  </app-car-details-card>
+</div>
+  <app-techical-details-card
+    [sellingPost]="this.sellingPost">
+  </app-techical-details-card>
+</div>

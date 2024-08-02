@@ -1,0 +1,8 @@
+<div class="layout-home">
+  <app-header></app-header>
+  <div class="cards-sections">
+    <app-my-car-card *ngFor="let sellingPost of sellingPosts" [sellingPost]="sellingPost"   (deleteConfirmed)="onDeleteConfirmed($event)">
+      ></app-my-car-card>
+  </div>
+</div>
+

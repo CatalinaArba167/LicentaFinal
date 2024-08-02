@@ -1,0 +1,46 @@
+<!--<app-header></app-header>-->
+<!--<div class="chat-layout">-->
+<!--  &lt;!&ndash; Conversations Sidebar &ndash;&gt;-->
+<!--  <div class="all-conversations">-->
+<!--    <div class="search-section">-->
+<!--      <mat-form-field class="search-box">-->
+<!--        <mat-icon matPrefix>search</mat-icon>-->
+<!--        <input matInput placeholder="Search Conversations">-->
+<!--      </mat-form-field>-->
+<!--    </div>-->
+<!--    <div class="recents-label">Recent</div>-->
+<!--    <div class="recents">-->
+<!--      <div *ngFor="let chat of chats" class="conversation-item" (click)="selectChat(chat)">-->
+<!--        <img src="assets/login_page_wallpaper.jpg" alt="User Avatar" class="avatar">-->
+<!--        <div class="conversation-info">-->
+<!--          <h4>{{ getOtherUser(chat).firstName +" "+getOtherUser(chat).lastName }}</h4>-->
+<!--          <p>{{ chat.messageList[0]?.content }}</p>-->
+<!--        </div>-->
+<!--        <span class="conversation-time">{{ chat.messageList[0]?.sentAt | date:'shortTime' }}</span>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  &lt;!&ndash; Opened Conversation &ndash;&gt;-->
+<!--  <div class="opened-conversation">-->
+<!--    <div class="conversation-header">-->
+<!--      <img src="assets/login_page_wallpaper.jpg" alt="User Avatar" class="avatar">-->
+<!--      <h4>{{getOtherUser(selectedChat!).firstName +" "+getOtherUser(selectedChat!).lastName}}</h4>-->
+<!--    </div>-->
+<!--    <div class="messages">-->
+<!--      <div *ngFor="let message of messages" [ngClass]="{'message-outgoing': message.isOutgoing, 'message-incoming': !message.isOutgoing}">-->
+<!--        <div class="message-content">{{ message.content }}</div>-->
+<!--        <span class="message-time">{{ message.sentAt }}</span>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="message-input">-->
+<!--      <mat-form-field class="message-box">-->
+<!--        <mat-icon matPrefix>message</mat-icon>-->
+<!--        <input matInput placeholder="Message..." [(ngModel)]="newMessage">-->
+<!--      </mat-form-field>-->
+<!--      <button mat-icon-button class="send-button" (click)="sendMessage()">-->
+<!--        <mat-icon>send</mat-icon>-->
+<!--      </button>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->

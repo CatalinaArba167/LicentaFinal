@@ -1,0 +1,33 @@
+
+$blood-red:#8A0707;
+$primary-white:#F4F4F4;
+$secondary-white: #cbcece;
+$primary-black:#030303;
+$secundary-black: #101317;
+$login-background-black: #21232f;
+$login-input-field:#323645;
+$login-input-field-selected:#3D404A;
+$primary-gray:#B6B1C2;
+$light-gray:#aaa;
+$medium-gray: #9997a6;
+$dark-gray:#5C5B63;
+$deep-gray-color: #00000029;
+$light-shadow-color: #0000001a;
+$neon-orange:#FF4433;
+$neon-orange-darker: darken($neon-orange, 10%);
+$error-red: #b30f00;
+$primary-green:#40bf80;
+$success-green:#2d8659;
+$hover-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+
+$font-size-12px: 12px !important;
+$font-size-14px: 14px !important;
+$font-size-16px: 16px !important;
+$font-size-18px: 18px !important;
+$font-size-24px: 24px !important;
+
+$dense-letter-spacing: -0.14px;
+
+$gray-box-shadow: 0px 3px 20px $deep-gray-color;
+$light-box-shadow: 0px 3px 10px $light-shadow-color;
+$white-box-shadow: 0 0 0px 1000px white inset;

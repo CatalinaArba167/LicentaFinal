@@ -1,0 +1,132 @@
+<div class="profile-layout">
+  <app-header></app-header>
+  <div class="user-information-section">
+    <div class="profile-picture-section">
+      <h3 class="profile-heading">My Profile</h3>
+      <img [src]="profilePictureUrl" alt="Profile Picture" class="profile-picture">
+      <button *ngIf="!isEditing" class="edit-profile-picture-button" (click)="fileInput.click()"></button>
+      <button *ngIf="isEditing" class="save-profile-picture-button" (click)="saveProfilePicture()"></button>
+      <button *ngIf="isEditing" class="cancel-profile-picture-button" (click)="cancelProfilePictureEdit()"></button>
+      <input type="file" #fileInput (change)="onFileSelected($event)" style="display: none;">
+    </div>
+
+    <div class="personal-information-section">
+      <form [formGroup]="userInfoForm">
+
+        <!-- First Name Field -->
+        <div class="info-pair">
+          <div class="label-large">First Name:</div>
+          <div class="label-small" *ngIf="!editing['firstName']; else editFirstName">
+            {{ userInfoForm.get('firstName')?.value }}
+            <button mat-icon-button class="edit-button" (click)="enableEdit('firstName')">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+          <ng-template #editFirstName>
+            <div class="editable-area">
+              <mat-form-field class="editable-input">
+                <input matInput formControlName="firstName">
+                <mat-error *ngIf="userInfoForm.get('firstName')?.hasError('required')">
+                  First name is required.
+                </mat-error>
+              </mat-form-field>
+              <button mat-icon-button class="save-button" (click)="openSaveDialog('firstName')">
+                <mat-icon>check</mat-icon>
+              </button>
+              <button mat-icon-button class="cancel-button" (click)="cancelEdit('firstName')">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </ng-template>
+        </div>
+
+        <!-- Last Name Field -->
+        <div class="info-pair">
+          <div class="label-large">Last Name:</div>
+          <div class="label-small" *ngIf="!editing['lastName']; else editLastName">
+            {{ userInfoForm.get('lastName')?.value }}
+            <button mat-icon-button class="edit-button" (click)="enableEdit('lastName')">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+          <ng-template #editLastName>
+            <div class="editable-area">
+              <mat-form-field class="editable-input">
+                <input matInput formControlName="lastName">
+                <mat-error *ngIf="userInfoForm.get('lastName')?.hasError('required')">
+                  Last name is required.
+                </mat-error>
+              </mat-form-field>
+              <button mat-icon-button class="save-button" (click)="openSaveDialog('lastName')">
+                <mat-icon>check</mat-icon>
+              </button>
+              <button mat-icon-button class="cancel-button" (click)="cancelEdit('lastName')">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </ng-template>
+        </div>
+
+        <!-- Email Field -->
+        <div class="info-pair">
+          <div class="label-large">Email:</div>
+          <div class="label-small" *ngIf="!editing['email']; else editEmail">
+            {{ userInfoForm.get('email')?.value }}
+            <button mat-icon-button class="edit-button" (click)="enableEdit('email')">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+          <ng-template #editEmail>
+            <div class="editable-area">
+              <mat-form-field class="editable-input">
+                <input matInput formControlName="email">
+                <mat-error *ngIf="userInfoForm.get('email')?.hasError('required')">
+                  Email is required.
+                </mat-error>
+                <mat-error *ngIf="userInfoForm.get('email')?.hasError('email')">
+                  Enter a valid email.
+                </mat-error>
+              </mat-form-field>
+              <button mat-icon-button class="save-button" (click)="openSaveDialog('email')">
+                <mat-icon>check</mat-icon>
+              </button>
+              <button mat-icon-button class="cancel-button" (click)="cancelEdit('email')">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </ng-template>
+        </div>
+
+        <!-- Password Field -->
+        <div class="info-pair">
+          <div class="label-large">Password:</div>
+          <div class="label-small" *ngIf="!editing['password']; else editPassword">
+            ********
+            <button mat-icon-button class="edit-button" (click)="enableEdit('password')">
+              <mat-icon>edit</mat-icon>
+            </button>
+          </div>
+          <ng-template #editPassword>
+            <div class="editable-area">
+              <mat-form-field class="editable-input">
+                <input matInput type="password" formControlName="password">
+                <mat-error *ngIf="userInfoForm.get('password')?.hasError('required')">
+                  Password is required.
+                </mat-error>
+                <mat-error *ngIf="userInfoForm.get('password')?.hasError('minLength')">
+                  Password must be at least 8 characters.
+                </mat-error>
+              </mat-form-field>
+              <button mat-icon-button class="save-button" (click)="openSaveDialog('password')">
+                <mat-icon>check</mat-icon>
+              </button>
+              <button mat-icon-button class="cancel-button" (click)="cancelEdit('password')">
+                <mat-icon>close</mat-icon>
+              </button>
+            </div>
+          </ng-template>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

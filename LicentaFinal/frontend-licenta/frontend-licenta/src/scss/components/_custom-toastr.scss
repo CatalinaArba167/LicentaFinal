@@ -1,0 +1,37 @@
+@import 'node_modules/ngx-toastr/toastr.css';
+@import 'src/scss/utils/variables';
+
+//.toast-container {
+//  @extend .toast-container;
+//  width: 400px  !important;
+//  border-radius: 10px !important;
+//  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+//  font: normal normal 400 16px Roboto, sans-serif;
+//}
+
+.toast-bottom-center {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed;
+}
+
+.toast-error {
+  @extend .toast-error;
+  background-color: $error-red;
+  color: $primary-white !important;
+  border-radius: 10px !important;
+  font: normal normal 400 16px Roboto, sans-serif;
+
+}
+
+.toast-success {
+  @extend .toast-success;
+  background-color: $success-green;
+  color: $primary-white !important;
+  border-radius: 10px !important;
+  font: normal normal 400 16px Roboto, sans-serif;
+
+}
+
+

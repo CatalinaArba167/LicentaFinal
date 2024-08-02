@@ -1,0 +1,31 @@
+<div class="car-card">
+  <div class="car-image-section">
+    <img class="car-image" [src]="firstImageSrc" alt="Car Image">
+    <div class="price">{{ sellingPost.car.price }} EUR</div>
+  </div>
+  <div class="car-details">
+    <h3 class="model">{{ sellingPost.title }}</h3>
+    <ul class="specs">
+      <li><mat-icon>calendar_today</mat-icon> {{ sellingPost.car.prodYear }}</li>
+      <li><mat-icon>directions_car</mat-icon> {{ sellingPost.car.engineVolume }} <span *ngIf="sellingPost.car.isTurbo"> Turbo</span></li>
+      <li><mat-icon>speed</mat-icon> {{ sellingPost.car.mileage }}</li>
+      <li><mat-icon>build_circle</mat-icon> {{ sellingPost.car.fuelType }}</li>
+      <li><mat-icon>business</mat-icon> {{ sellingPost.car.manufacturer }}</li>
+      <li><mat-icon>category</mat-icon> {{ sellingPost.car.category }}</li>
+      <li><mat-icon>settings</mat-icon> {{ sellingPost.car.gearBoxType }}</li>
+      <li><mat-icon>drive_eta</mat-icon> {{ sellingPost.car.driveWheels }}</li>
+      <li><mat-icon>door_front</mat-icon> {{ sellingPost.car.doors }}</li>
+      <li><mat-icon>settings_steering</mat-icon> {{ sellingPost.car.wheel }}</li>
+      <li><mat-icon>palette</mat-icon> {{ sellingPost.car.color }}</li>
+      <li><mat-icon>airline_seat_flat</mat-icon> {{ sellingPost.car.airbags }} Airbags</li>
+      <li><mat-icon>check</mat-icon> Leather Interior: {{ sellingPost.car.leatherInterior ? 'Yes' : 'No' }}</li>
+    </ul>
+  </div>
+  <button class="edit-button" (click)="navigateToEditPage()">
+    <mat-icon>edit</mat-icon>
+  </button>
+  <button class="delete-button" (click)="openConfirmDialog()">
+    <mat-icon>delete</mat-icon>
+  </button>
+
+</div>

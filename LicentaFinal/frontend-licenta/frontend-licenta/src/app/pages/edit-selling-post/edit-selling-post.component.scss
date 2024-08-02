@@ -1,0 +1,189 @@
+@import "src/scss/utils/variables";
+@import "src/scss/components/button";
+@import "src/scss/components/inputs";
+
+
+.create-post-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-size: cover;
+  height: 100vh;
+  background-image: url('../../../assets/img.png');
+  background-attachment: fixed;
+  overflow-y: auto;
+}
+.under-header {
+  display: block;
+  width: 100%;
+  height: 10vh;
+  min-height: 10vh;
+  background-color: transparent;
+}
+
+.page-title{
+  align-items: start;
+  color: $neon-orange;
+  font: normal normal 400 1.5vw Roboto, sans-serif;
+}
+
+.section {
+  width: 100%;
+  min-width: 1500px;
+  max-width: 1500px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: solid 2px $login-background-black;
+  box-shadow: 0 2px 2px $login-background-black;
+  display: flex;
+  flex-direction: column;
+}
+
+.title-field {
+  width: 50%;
+}
+
+.description-field {
+  width: 100%;
+  min-height: 150px;
+}
+
+
+.photo-upload-card {
+  display: inline-block;
+  margin: 10px;
+}
+
+.photo-preview {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.location-fields {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 20%;
+  gap: 10px;
+
+}
+
+.post-button{
+  justify-content: end;
+  border-radius: 36px;
+  box-shadow: 0 4px 6px $dark-gray;
+  color: $primary-white;
+  padding: 10px 30px;
+  margin: 10px 10px 40px 10px;
+}
+.button-section{
+  width: 100%;
+  min-width: 1500px;
+  max-width: 1500px;
+  background: transparent;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: none ;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.picture-preview-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.picture-preview {
+  position: relative;
+  margin-right: 10px;
+  margin-top:10px;
+  margin-bottom: 10px;
+}
+
+.preview-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.delete-button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: center;
+  padding: 0;
+}
+
+
+.delete-button mat-icon {
+  font-size: 16px;
+  padding-top: 5px;
+  color: $neon-orange;
+}
+
+.section-title {
+  color: $primary-white;
+  font: normal normal 400 1vw Roboto, sans-serif;
+  margin-bottom: 10px;
+  display: block;
+  padding-bottom: 16px;
+}
+
+.custom-upload-button {
+  background-color: $login-background-black;
+  font: normal normal 400 0.7vw Roboto, sans-serif;
+  color: $primary-white;
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  display: inline-block;
+  width: 10vw;
+}
+
+.multiple-columns {
+  display: flex;
+  gap: 32px;
+
+  mat-form-field, mat-slide-toggle, div  {
+    flex: 1;
+  }
+}
+
+.generate-section{
+  background: transparent;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: none ;
+  display: flex;
+  justify-content: flex-end;
+}
+.ai_disclaimer{
+  color: $neon-orange;
+  display: flex;
+  justify-content: start;
+  vertical-align: center;
+  gap: 2px
+}
+.short-column{
+  width: 33%;
+}
+
+
+

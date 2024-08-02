@@ -1,0 +1,108 @@
+<div class="form-container">
+  <div class="form-wrapper" [ngClass]="{ 'move-left': showRegisterForm }">
+    <!-- Login Information -->
+    <div class="login-information">
+      <mat-card>
+        <mat-card-content>
+          <form [formGroup]="login" (ngSubmit)="clickLogin()" >
+            <div class="header-logo">
+              <img src="assets/car_dealer_logo.png" alt="Car Dealer Logo" />
+            </div>
+            <mat-form-field class="mat-form-field login-input-field"  >
+              <mat-label>Enter email</mat-label>
+              <mat-icon class="icon" matPrefix>email</mat-icon>
+              <input formControlName="email" matInput placeholder="Email" type="text" autocomplete="off" />
+              <mat-error *ngIf="isFieldInvalid(login, 'email')">
+                {{ login.get('email')?.hasError('required') ? 'Email is required' : 'Invalid email format' }}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field margin-top-10px">
+              <mat-label>Enter password</mat-label>
+              <mat-icon matPrefix>lock</mat-icon>
+              <input formControlName="password" matInput placeholder="Password" type="password" autocomplete="off" />
+              <mat-error *ngIf="isFieldInvalid(login, 'password')">
+                {{ login.get('password')?.hasError('required') ? 'Password is required' : 'Password must be at least 6 characters' }}
+              </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button class="log_in_button" (click)="clickLogin()" [disabled]="login.invalid">Login</button>
+            <div *ngIf="loginError" class="input-error">
+              {{ loginError }}
+            </div>
+            <div class="register-prompt">
+              Don't have an account? <a (click)="toggleForms(true)">Register Here</a>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+
+    <!-- Background Content -->
+    <div class="background-content"></div>
+
+    <!-- Register Information -->
+    <div class="register-information">
+      <mat-card>
+        <mat-card-content>
+          <form [formGroup]="signUp" (ngSubmit)="clickSignUp()">
+            <div class="header-logo">
+              <img src="assets/car_dealer_logo.png" alt="Car Dealer Logo" />
+            </div>
+            <div class="user-name-row">
+              <mat-form-field class="mat-form-field login-input-field">
+                <mat-label>Firstname</mat-label>
+                <mat-icon matPrefix>person</mat-icon>
+                <input formControlName="firstName" matInput placeholder="Firstname" type="text" autocomplete="off" />
+                <mat-error *ngIf="isFieldInvalid(signUp, 'firstName')">
+                  {{ signUp.get('firstName')?.hasError('required') ? 'First name is required' : 'First name must be at least 2 characters' }}
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="mat-form-field login-input-field">
+                <mat-label>Lastname</mat-label>
+                <mat-icon matPrefix>person_outline</mat-icon>
+                <input formControlName="lastName" matInput placeholder="Lastname" type="text" autocomplete="off" />
+                <mat-error *ngIf="isFieldInvalid(signUp, 'lastName')">
+                  {{ signUp.get('lastName')?.hasError('required') ? 'Last name is required' : 'Last name must be at least 2 characters' }}
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <mat-form-field class="mat-form-field login-input-field">
+              <mat-label>Email</mat-label>
+                <mat-icon  matPrefix>email</mat-icon>
+                <input formControlName="email" matInput placeholder="Email" type="text" autocomplete="off" />
+                <mat-error *ngIf="isFieldInvalid(signUp, 'email')">
+                  {{ signUp.get('email')?.hasError('required') ? 'Email is required' : 'Invalid email format' }}
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field margin-top-10px">
+              <mat-label>Password</mat-label>
+              <mat-icon matPrefix>lock</mat-icon>
+              <input formControlName="password" matInput placeholder="Password" type="password" autocomplete="off" />
+              <mat-error *ngIf="isFieldInvalid(signUp, 'password')">
+                {{ signUp.get('password')?.hasError('required') ? 'Password is required' : 'Password must be at least 6 characters' }}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="mat-form-field margin-top-10px">
+              <mat-label>Confirm password</mat-label>
+              <mat-icon matPrefix>key</mat-icon>
+              <input formControlName="confirmPassword" matInput placeholder="Confirm Password" type="password" autocomplete="off" />
+              <mat-error *ngIf="isFieldInvalid(signUp, 'confirmPassword')">
+                {{ signUp.get('confirmPassword')?.hasError('required') ? 'Confirmation password is required' : '' }}
+                {{ signUp.get('confirmPassword')?.hasError('mustMatch') ? 'Passwords do not match' : '' }}
+              </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button class="log_in_button" (click)="clickSignUp()" [disabled]="signUp.invalid">Sign Up</button>
+            <div *ngIf="signUpError" class="input-error">{{ signUpError }}</div>
+            <div class="register-prompt">
+              Already have an account? <a (click)="toggleForms(false)">Sign In Here</a>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>

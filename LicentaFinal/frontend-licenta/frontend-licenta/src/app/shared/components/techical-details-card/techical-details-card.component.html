@@ -1,0 +1,63 @@
+<div class="techical-details-section">
+  <ul class="specs">
+    <li>
+      <mat-icon>calendar_today</mat-icon>
+      Production Year: {{ sellingPost?.car?.prodYear }}
+    </li>
+    <li>
+      <mat-icon>directions_car</mat-icon>
+      Engine Volume: {{ sellingPost?.car?.engineVolume }} L<span *ngIf="sellingPost?.car?.isTurbo"> Turbo</span>
+    </li>
+    <li>
+      <mat-icon>speed</mat-icon>
+      Mileage: {{ sellingPost?.car?.mileage }} km
+    </li>
+    <li>
+      <mat-icon>build_circle</mat-icon>
+      Fuel Type: {{ sellingPost?.car?.fuelType }}
+    </li>
+    <li>
+      <mat-icon>business</mat-icon>
+      Manufacturer: {{ sellingPost?.car?.manufacturer }}
+    </li>
+    <li>
+      <mat-icon>category</mat-icon>
+      Category: {{ sellingPost?.car?.category }}
+    </li>
+    <li>
+      <mat-icon>settings</mat-icon>
+      Gear Box Type: {{ sellingPost?.car?.gearBoxType }}
+    </li>
+    <li>
+      <mat-icon>drive_eta</mat-icon>
+      Drive Wheels: {{ sellingPost?.car?.driveWheels }}
+    </li>
+    <li>
+      <mat-icon>door_front</mat-icon>
+      Doors: {{ sellingPost?.car?.doors }}
+    </li>
+    <li>
+      <mat-icon>settings_steering</mat-icon>
+      Wheel: {{ sellingPost?.car?.wheel }}
+    </li>
+    <li>
+      <mat-icon>palette</mat-icon>
+      Color: {{ sellingPost?.car?.color }}
+    </li>
+    <li>
+      <mat-icon>airline_seat_flat</mat-icon>
+      Airbags: {{ sellingPost?.car?.airbags }}
+    </li>
+    <li>
+      <mat-icon>check</mat-icon>
+      Leather Interior: {{ sellingPost?.car?.leatherInterior ? 'Yes' : 'No' }}
+    </li>
+    <li>
+      <mat-icon>location_on</mat-icon>
+      Location: {{ sellingPost?.car?.location?.city }}, {{ sellingPost?.car?.location?.county }}, {{ sellingPost?.car?.location?.country }}
+    </li>
+
+  </ul>
+
+
+</div>

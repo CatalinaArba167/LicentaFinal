@@ -1,0 +1,45 @@
+@import "../utils/variables";
+
+.mat-mdc-select {
+
+  color: white;
+
+  .mat-select-trigger {
+    color: white;
+  }
+
+  .mat-select-arrow {
+    color: white;
+  }
+
+  .mat-select-value-text {
+    color: white;
+  }
+}
+
+.mat-mdc-select-panel {
+  background-color: $login-background-black !important ;
+  color: white !important ;
+
+  .mat-mdc-option {
+    color: white !important ;
+
+    &.mat-mdc-selected {
+      background-color: $neon-orange  !important;
+      color: white  !important;
+    }
+
+    &:hover {
+      background-color: $neon-orange  !important;
+    }
+  }
+
+  .mat-mdc-option-text {
+    color: white;
+  }
+}
+.mat-mdc-select-value-text{
+  color: white !important;
+}
+
+

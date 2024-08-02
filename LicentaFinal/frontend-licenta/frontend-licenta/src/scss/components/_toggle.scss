@@ -1,0 +1,20 @@
+.mat-mdc-slide-toggle .mdc-form-field {
+  color: white !important;
+}
+
+.mdc-switch:enabled .mdc-switch__track::after {
+  background: $neon-orange !important;
+}
+
+.mat-mdc-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+  background-color: $neon-orange !important;
+}
+
+.mat-mdc-slide-toggle-label {
+  color: white !important;
+}
+
+.mat-mdc-slide-toggle-thumb {
+  background-color: $neon-orange !important;
+}
+

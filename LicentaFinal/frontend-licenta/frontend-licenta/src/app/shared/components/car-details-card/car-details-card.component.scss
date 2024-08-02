@@ -1,0 +1,71 @@
+@import "src/scss/utils/variables";
+
+.car-details-section{
+  width: 20vw;
+  height: 60vh;
+  box-shadow: 0 2px 8px $medium-gray;
+  font: normal normal 400 24px Roboto, sans-serif;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  gap:20px
+
+
+}
+.title{
+  padding-bottom: 16px;
+  color: $primary-black;
+  font: normal normal 400 30px Roboto, sans-serif;
+
+}
+.price_section{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.price{
+  font-size: 24px;
+  color: $neon-orange;
+
+
+  mat-icon {
+    margin-right: 8px;
+    color: $neon-orange;
+  }
+}
+.last_details {
+  margin-top: auto;
+}
+.post-details{
+  font-size: 16px;
+  color: $medium-gray;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+
+  mat-icon {
+    margin-right: 8px;
+    color: $medium-gray;
+  }
+}
+
+.description-container {
+  padding: 2px;
+  max-height: 30vh;
+  overflow-y: auto;
+}
+
+
+::-webkit-scrollbar {
+  width: 10px;
+  background: $primary-white !important;
+}
+
+::-webkit-scrollbar-track {
+  background: $primary-white !important;
+}
+::-webkit-resizer{
+  background: $primary-white !important;
+}
+

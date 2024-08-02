@@ -1,0 +1,33 @@
+// Importing necessary SCSS files
+@import "src/scss/utils/variables";
+@import "src/scss/components/button";
+@import "src/scss/components/custom-toastr";
+
+.layout-home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 99vw;
+  overflow-y: visible;
+  background-color: $primary-white;
+
+}
+
+.home-image-section {
+  margin-top: 5vh;
+  width: 100vw;
+  height: 30vh;
+  background: url('../../../assets/home_page_photo.jpg') no-repeat center center;
+  background-size: cover;
+}
+
+.cards-sections {
+  box-sizing: border-box;
+  margin: 7vh 4vw 7vh 7vh;
+  background-color: $primary-white;
+  justify-items: center;
+  width: 86vw;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+

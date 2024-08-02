@@ -1,0 +1,39 @@
+<div class="car-details-section">
+
+  <div class="title">{{sellingPost?.title}}</div>
+  <div class="price_section">
+    <div class="price">
+      <mat-icon>attach_money</mat-icon>
+      Price: <b>{{formatNumber(sellingPost?.car?.price)}}</b> EUR
+    </div>
+    <div class="price">
+      <mat-icon>insights</mat-icon>
+      AI Predicted Price: <b>{{formatNumber(sellingPost?.car?.predictedPrice)}}</b> EUR
+    </div>
+  </div>
+  <div class="description-container">
+    <span class="description-text">{{sellingPost?.description}}</span>
+  </div>
+
+  <div class="last_details">
+
+    <div class="post-details">
+      <mat-icon>person</mat-icon>
+      Owner: {{ sellingPost?.ownerFirstName + " " + sellingPost?.ownerLastName }}
+    </div>
+    <div class="post-details">
+      <mat-icon>email</mat-icon>
+      Email: {{ sellingPost?.ownerEmail}}
+    </div>
+    <div class="post-details">
+
+      <mat-icon>event</mat-icon>
+      Posted on: {{ sellingPost?.postDate | date:'yyyy-MM-dd' }}
+    </div>
+    <div class="post-details">
+      <mat-icon>access_time</mat-icon>
+      Time: {{ sellingPost?.postDate | date:'HH:mm:ss' }}
+    </div>
+  </div>
+
+</div>

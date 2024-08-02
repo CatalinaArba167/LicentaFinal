@@ -1,0 +1,217 @@
+<app-header></app-header>
+<div class="create-post-layout">
+  <div class="under-header"></div>
+  <h2 class="page-title">UPDATE A POST</h2>
+
+  <form [formGroup]="postForm">
+    <div class="section">
+      <h3 class="section-title">Post Information</h3>
+      <mat-form-field class="title-field dark-input" appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput placeholder="Enter a title" formControlName="title">
+        <mat-error *ngIf="postForm.get('title')?.errors?.['required']">Title is required.</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="description-field dark-input" appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput placeholder="Enter a description" formControlName="description" rows="5"></textarea>
+        <mat-error *ngIf="postForm.get('description')?.errors?.['required']">Description is required.</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="section">
+      <label class="section-title">Upload Pictures</label>
+      <button type="button" class="custom-upload-button" (click)="fileInput.click()">Choose Files</button>
+      <input type="file" #fileInput (change)="onFileSelected($event)" multiple style="display: none;">
+      <div class="picture-preview-container">
+        <div class="picture-preview" *ngFor="let image of processedPictures; let i = index">
+          <img [src]="image" alt="Preview" class="preview-image">
+          <button type="button" (click)="removeImage(i)" class="delete-button" title="Delete">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">Location Information</h3>
+      <div class="multiple-columns">
+        <mat-form-field class="location-information dark-input" appearance="fill">
+          <mat-label>Country</mat-label>
+          <input matInput placeholder="Enter a country" formControlName="country">
+          <mat-error *ngIf="postForm.get('country')?.errors?.['required']">Country is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="location-information" appearance="fill">
+          <mat-label>County</mat-label>
+          <input matInput placeholder="Enter a county" formControlName="county">
+          <mat-error *ngIf="postForm.get('county')?.errors?.['required']">County is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="location-information" appearance="fill">
+          <mat-label>City</mat-label>
+          <input matInput placeholder="Enter a city" formControlName="city">
+          <mat-error *ngIf="postForm.get('city')?.errors?.['required']">City is required.</mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">Category</h3>
+      <div class="multiple-columns">
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="category">
+            <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="postForm.get('category')?.errors?.['required']">Category is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Production year</mat-label>
+          <input matInput type="number" placeholder="Enter production year" formControlName="prodYear">
+        </mat-form-field>
+      </div>
+      <div class="multiple-columns">
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Manufacturer</mat-label>
+          <mat-select formControlName="manufacturer">
+            <mat-option *ngFor="let manufacturer of manufacturers"
+                        [value]="manufacturer">{{ manufacturer }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="postForm.get('manufacturer')?.errors?.['required']">Manufacturer is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Model</mat-label>
+          <input matInput placeholder="Enter model" formControlName="model">
+        </mat-form-field>
+      </div>
+
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">Engine Details</h3>
+      <div class="multiple-columns">
+
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Mileage</mat-label>
+          <input matInput type="number" placeholder="Enter mileage" formControlName="mileage">
+        </mat-form-field>
+
+
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Fuel Type</mat-label>
+          <mat-select formControlName="fuelType">
+            <mat-option *ngFor="let type of fuelTypes" [value]="type">{{ type }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="postForm.get('fuelType')?.errors?.['required']">Fuel type is required.</mat-error>
+        </mat-form-field>
+
+
+      </div>
+      <div class="multiple-columns">
+
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>engineVolume</mat-label>
+          <input matInput type="number" placeholder="Enter engine volume" formControlName="engineVolume">
+        </mat-form-field>
+
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Cylinders</mat-label>
+          <input matInput type="number" placeholder="Enter number of cylinders" formControlName="cylinders">
+        </mat-form-field>
+      </div>
+      <mat-slide-toggle formControlName="isTurbo">Is Turbo</mat-slide-toggle>
+
+    </div>
+
+    <div class="section">
+      <h3 class="section-title">General Details</h3>
+      <div class="multiple-columns">
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Gear Box Type</mat-label>
+          <mat-select formControlName="gearBoxType">
+            <mat-option *ngFor="let type of gearBoxTypes" [value]="type">{{ type }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="postForm.get('gearBoxType')?.errors?.['required']">Gear box type is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Drive Wheels</mat-label>
+          <mat-select formControlName="driveWheels">
+            <mat-option *ngFor="let wheels of drivingWheels" [value]="wheels">{{ wheels }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="postForm.get('driveWheels')?.errors?.['required']">Drive wheels is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Doors</mat-label>
+          <mat-select formControlName="doors">
+            <mat-option *ngFor="let door of doors" [value]="door">{{ door }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="postForm.get('doors')?.errors?.['required']">Doors is required.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="multiple-columns">
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Wheel</mat-label>
+          <mat-select formControlName="wheel">
+            <mat-option *ngFor="let wh of wheel" [value]="wh">{{ wh }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="postForm.get('wheel')?.errors?.['required']">Wheel is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Color</mat-label>
+          <mat-select formControlName="color">
+            <mat-option *ngFor="let color of colors" [value]="color">{{ color }}</mat-option>
+          </mat-select>
+          <mat-error *ngIf="postForm.get('color')?.errors?.['required']">Color is required.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Airbags</mat-label>
+          <input matInput type="number" placeholder="Enter number of airbags" formControlName="airbags">
+        </mat-form-field>
+
+      </div>
+      <mat-slide-toggle formControlName="leatherInterior">Leather Interior</mat-slide-toggle>
+    </div>
+
+    <div class="section">9
+      <h3 class="section-title">Pricing</h3>
+      <div class="short-column">
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Price</mat-label>
+          <input matInput type="number" placeholder="Enter price" formControlName="price">
+          <mat-error *ngIf="postForm.get('price')?.errors?.['required']">Price is required.</mat-error>
+        </mat-form-field>
+
+      </div>
+
+
+      <div class="multiple-columns">
+        <div>
+          <h4 class="section-title ai_disclaimer">
+            <mat-icon>star</mat-icon>
+            Use AI to predict a price for your car
+          </h4>
+          <div class="section-title " *ngIf="this.sellingPost?.car?.predictedPrice!=0">
+            {{"The predicted price is " + this.sellingPost?.car?.predictedPrice}}
+          </div>
+        </div>
+
+        <div class="generate-section">
+          <button (click)="predictThePrice()" class="post-button green-button" [disabled]="!postForm.valid">Predict the
+            price
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="button-section">
+      <button (click)="onSubmit()" class="post-button green-button" [disabled]="!postForm.valid">Update</button>
+    </div>
+  </form>
+</div>

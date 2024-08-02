@@ -1,0 +1,22 @@
+@import "src/scss/utils/variables";
+
+/* This styles the scrollbar track */
+::-webkit-scrollbar {
+  width: 10px; /* width of the entire scrollbar */
+  background: $login-background-black; /* color of the track */
+}
+
+/* This styles the draggable part of the scrollbar */
+::-webkit-scrollbar-thumb {
+  z-index: 100000000;
+  background-color: $neon-orange; /* color of the scrollbar itself */
+  border-radius: 5px; /* roundness of the scrollbar */
+}
+
+/* This styles the part of the scrollbar track not being covered by the handle. */
+::-webkit-scrollbar-track {
+  background: $login-background-black; /* color of the track */
+}
+::-webkit-resizer{
+  background-color: $login-background-black;
+}
