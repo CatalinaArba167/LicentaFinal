@@ -93,4 +93,12 @@ export class MyCarCardComponent implements OnInit{
     };
     this.router.navigate(['/edit', this.sellingPost.id], navigationExtras);
   }
+
+  protected navigateToDetails(): void {
+    const navigationExtras: NavigationExtras = {
+      state: { sellingPost: this.sellingPost, processedPictures:this.processedPictures
+      }
+    };
+    this.router.navigate(['/details', this.sellingPost.id], navigationExtras);
+  }
 }

@@ -5,6 +5,7 @@ import {SellingPostService} from "../services/selling-post.service";
 import {AuthenticationService} from "../../core/services/authentication.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {SellingPost} from "../../shared/types/selling-post.types";
+import {AiModelServiceService} from "../../shared/services/ai-model-service/ai-model-service.service";
 
 @Component({
   selector: 'app-edit-selling-post',
@@ -48,7 +49,8 @@ export class EditSellingPostComponent implements OnInit {
               private sellingPostService: SellingPostService,
               private authService: AuthenticationService,
               private router: Router,
-              private route: ActivatedRoute) {
+              private route: ActivatedRoute,
+              private aiModelService: AiModelServiceService) {
 
     // Access the sellingPost from router state
     const navigation = this.router.getCurrentNavigation();
@@ -61,6 +63,7 @@ export class EditSellingPostComponent implements OnInit {
       title: ['', [Validators.required, Validators.maxLength(70)]],
       description: ['', [Validators.required, Validators.maxLength(1000)]],
       price: [null, [Validators.required, Validators.min(0)]],
+      predictedPrice: [null, [Validators.required, Validators.min(0)]],
       prodYear: ['', Validators.required],
       country: ['', Validators.required],
       county: ['', Validators.required],
@@ -100,6 +103,7 @@ export class EditSellingPostComponent implements OnInit {
         title: this.sellingPost.title,
         description: this.sellingPost.description,
         price: this.sellingPost.car.price,
+        predictedPrice: this.sellingPost.car.predictedPrice,
         prodYear: this.sellingPost.car.prodYear,
         country: this.sellingPost.car.location.country,
         county: this.sellingPost.car.location.county,
@@ -137,6 +141,7 @@ export class EditSellingPostComponent implements OnInit {
             city: this.postForm.value.city
           },
           price: this.postForm.value.price,
+          predictedPrice: this.postForm.value.predictedPrice,
           manufacturer: this.postForm.value.manufacturer,
           model: this.postForm.value.model,
           category: this.postForm.value.category,
@@ -216,12 +221,51 @@ export class EditSellingPostComponent implements OnInit {
       this.selectedFiles.splice(index, 1);     // Remove from selected files
     }
   }
+
   protected predictThePrice(): void {
-    if (this.sellingPost && this.sellingPost.car) {
-      this.sellingPost.car.predictedPrice = 1000;
-      console.log( this.sellingPost.car.predictedPrice)
+    if (this.postForm.valid) {
+      const formData = new FormData();
+
+      formData.append('manufacturer', this.postForm.value.manufacturer);
+      formData.append('model', this.postForm.value.model);
+      formData.append('prod._year', this.postForm.value.prodYear);
+      formData.append('category', this.postForm.value.category);
+      formData.append('leather_interior', this.postForm.value.leatherInterior ? 'Yes' : 'No');
+      formData.append('fuel_type', this.postForm.value.fuelType);
+      formData.append('engine_volume', this.postForm.value.engineVolume.toString());
+      formData.append('mileage', `${this.postForm.value.mileage} km`);
+      formData.append('cylinders', this.postForm.value.cylinders.toString());
+      formData.append('gear_box_type', this.postForm.value.gearBoxType);
+      formData.append('drive_wheels', this.postForm.value.driveWheels);
+      formData.append('doors', this.postForm.value.doors);
+      formData.append('wheel', this.postForm.value.wheel);
+      formData.append('color', this.postForm.value.color);
+      formData.append('airbags', this.postForm.value.airbags.toString());
+      formData.append('isTurbo', this.postForm.value.isTurbo ? '1' : '0');
+
+
+      this.aiModelService.makePrediction(formData).subscribe(
+        (response: number) => {
+          console.log('Prediction result:', response);
+          if (this.sellingPost && this.sellingPost.car) {
+            // this.sellingPost.car.predictedPrice = response.predicted_price;
+          }
+          this.postForm.patchValue({predictedPrice: response});
+        },
+        (error) => {
+          console.error('Prediction error:', error);
+          // Handle the error as needed
+        }
+      );
+
+    } else {
+      console.log('Form is not valid');
     }
   }
 
+  protected formatNumber(value: number | undefined): string {
+    if (!value && value !== 0) return '';
 
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
 }

@@ -197,9 +197,10 @@
             <mat-icon>star</mat-icon>
             Use AI to predict a price for your car
           </h4>
-          <div class="section-title " *ngIf="this.sellingPost?.car?.predictedPrice!=0">
-            {{"The predicted price is " + this.sellingPost?.car?.predictedPrice}}
+          <div class="section-title" *ngIf="postForm.get('predictedPrice')?.value != null && postForm.get('predictedPrice')?.value != 0">
+            {{ "The predicted price is " +formatNumber(postForm.get('predictedPrice')?.value) }}
           </div>
+
         </div>
 
         <div class="generate-section">

@@ -1,7 +1,7 @@
 <div class="car-card">
   <div class="car-image-section">
     <img class="car-image" [src]="firstImageSrc" alt="Car Image">
-    <div class="price">{{ sellingPost.car.price }} EUR</div>
+    <div class="price">{{formatNumber(sellingPost?.car?.price)}} EUR</div>
   </div>
 
   <div class="car-details">

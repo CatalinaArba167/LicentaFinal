@@ -72,11 +72,17 @@ export class CarOfferCardComponent implements OnInit{
     return fetch(`data:image/jpeg;base64,${base64}`).then(res => res.blob());
   }
 
-  navigateToDetails(): void {
+  protected navigateToDetails(): void {
     const navigationExtras: NavigationExtras = {
       state: { sellingPost: this.sellingPost, processedPictures:this.processedPictures
       }
     };
     this.router.navigate(['/details', this.sellingPost.id], navigationExtras);
+  }
+
+  protected formatNumber(value: number | undefined): string {
+    if (!value && value !== 0) return '';
+
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
   }
 }

@@ -6,6 +6,7 @@ import joblib
 
 
 app = Flask(__name__)
+CORS(app)
 
 # Load the trained model, scaler, encoder, and columns
 rf_model = joblib.load('RandomForest_model.joblib')
@@ -20,7 +21,7 @@ def preprocess_input(input_df):
     input_df['mileage'] = input_df['mileage'].str.replace(' km', '').astype(int)
 
     input_df['engine_volume'] = input_df['engine_volume'].astype(str)
-    input_df['is_turbo'] = input_df['engine_volume'].apply(lambda x: 1 if 'Turbo' in x else 0)
+    # input_df['is_turbo'] = input_df['engine_volume'].apply(lambda x: 1 if 'Turbo' in x else 0)
     input_df['engine_volume'] = input_df['engine_volume'].str.replace(' Turbo', '').astype(float)
 
     # Apply logarithmic transformation to the car instance
@@ -51,7 +52,7 @@ def hello_world():  # put application's code here
     input_df = pd.DataFrame([data])
     processed_input = preprocess_input(input_df)
     predicted_price = rf_model.predict(processed_input)
-    return jsonify({'predicted_price': predicted_price[0]})
+    return jsonify( int(predicted_price[0]))
 
 
 if __name__ == '__main__':

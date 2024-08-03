@@ -21,6 +21,9 @@
       <li><mat-icon>check</mat-icon> Leather Interior: {{ sellingPost.car.leatherInterior ? 'Yes' : 'No' }}</li>
     </ul>
   </div>
+  <button class="navigate-button" (click)="navigateToDetails()">
+    <mat-icon>call_made</mat-icon>
+  </button>
   <button class="edit-button" (click)="navigateToEditPage()">
     <mat-icon>edit</mat-icon>
   </button>
