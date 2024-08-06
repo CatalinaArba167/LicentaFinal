@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SellingPost} from "../../shared/types/selling-post.types";
 import {Router} from "@angular/router";
 
@@ -7,10 +7,11 @@ import {Router} from "@angular/router";
   templateUrl: './selling-post-details.component.html',
   styleUrls: ['./selling-post-details.component.scss']
 })
-export class SellingPostDetailsComponent {
+export class SellingPostDetailsComponent implements OnInit{
   processedPictures: string[] = [];
   sellingPost: SellingPost | null = null;
   currentImageIndex: number = 0;
+  defaultImageSrc: string = 'assets/default_selling_picture.png';
 
   constructor(private router: Router,) {
     const navigation = this.router.getCurrentNavigation();
@@ -35,5 +36,11 @@ export class SellingPostDetailsComponent {
 
   navigateBack() {
     this.router.navigate(['/home']);
+  }
+
+  ngOnInit(): void {
+    if(this.processedPictures.length===0){
+      this.processedPictures.push(this.defaultImageSrc);
+    }
   }
 }

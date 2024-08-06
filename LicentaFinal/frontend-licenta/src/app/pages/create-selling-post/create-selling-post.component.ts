@@ -4,6 +4,8 @@ import {ToastrService} from "ngx-toastr";
 import {SellingPostService} from "../services/selling-post.service";
 import {AuthenticationService} from "../../core/services/authentication.service";
 import {Router} from "@angular/router";
+import {formatNumber} from "@angular/common";
+import {AiModelServiceService} from "../../shared/services/ai-model-service/ai-model-service.service";
 
 @Component({
   selector: 'app-create-selling-post',
@@ -45,7 +47,8 @@ export class CreateSellingPostComponent {
   constructor(private fb: FormBuilder, private toastr: ToastrService,
               private sellingPostService: SellingPostService,
               private authService: AuthenticationService,
-              private router: Router) {
+              private router: Router,
+              private aiModelService: AiModelServiceService) {
 
     this.postForm = this.fb.group({
       title: ['', [Validators.required, Validators.maxLength(70)]],
@@ -150,4 +153,49 @@ export class CreateSellingPostComponent {
     this.previewImages.splice(index, 1);
     this.selectedFiles.splice(index, 1);
   }
+
+  protected formatNumber(value: number | undefined): string {
+    if (!value && value !== 0) return '';
+
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+  }
+
+  protected predictThePrice(): void {
+    if (this.postForm.valid) {
+      const carPredictionData = {
+        manufacturer: this.postForm.value.manufacturer,
+        model: this.postForm.value.model,
+        'prod._year': this.postForm.value.prodYear,
+        category: this.postForm.value.category,
+        leather_interior: this.postForm.value.leatherInterior ? 'Yes' : 'No',
+        fuel_type: this.postForm.value.fuelType,
+        engine_volume: this.postForm.value.engineVolume,
+        mileage: `${this.postForm.value.mileage} km`,
+        cylinders: this.postForm.value.cylinders,
+        gear_box_type: this.postForm.value.gearBoxType,
+        drive_wheels: this.postForm.value.driveWheels,
+        doors: this.postForm.value.doors,
+        wheel: this.postForm.value.wheel,
+        color: this.postForm.value.color,
+        airbags: this.postForm.value.airbags,
+        isTurbo: this.postForm.value.isTurbo ? 1 : 0
+      };
+
+
+      this.aiModelService.makePrediction(carPredictionData).subscribe(
+        (response: number) => {
+          console.log('Prediction result:', response);
+          this.postForm.patchValue({predictedPrice: response});
+        },
+        (error) => {
+          console.error('Prediction error:', error);
+          // Handle the error as needed
+        }
+      );
+
+    } else {
+      console.log('Form is not valid');
+    }
+  }
+
 }

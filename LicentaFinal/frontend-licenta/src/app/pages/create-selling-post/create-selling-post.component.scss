@@ -166,6 +166,26 @@
   }
 }
 
+.generate-section{
+  background: transparent;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: none ;
+  display: flex;
+  justify-content: flex-end;
+}
+.ai_disclaimer{
+  color: $neon-orange;
+  display: flex;
+  justify-content: start;
+  vertical-align: center;
+  gap: 2px
+}
+.short-column{
+  width: 33%;
+}
+
+
 
 
 

@@ -224,27 +224,27 @@ export class EditSellingPostComponent implements OnInit {
 
   protected predictThePrice(): void {
     if (this.postForm.valid) {
-      const formData = new FormData();
+      const carPredictionData = {
+        manufacturer: this.postForm.value.manufacturer,
+        model: this.postForm.value.model,
+        'prod._year': this.postForm.value.prodYear,
+        category: this.postForm.value.category,
+        leather_interior: this.postForm.value.leatherInterior ? 'Yes' : 'No',
+        fuel_type: this.postForm.value.fuelType,
+        engine_volume: this.postForm.value.engineVolume,
+        mileage: `${this.postForm.value.mileage} km`,
+        cylinders: this.postForm.value.cylinders,
+        gear_box_type: this.postForm.value.gearBoxType,
+        drive_wheels: this.postForm.value.driveWheels,
+        doors: this.postForm.value.doors,
+        wheel: this.postForm.value.wheel,
+        color: this.postForm.value.color,
+        airbags: this.postForm.value.airbags,
+        isTurbo: this.postForm.value.isTurbo ? 1 : 0
+      };
 
-      formData.append('manufacturer', this.postForm.value.manufacturer);
-      formData.append('model', this.postForm.value.model);
-      formData.append('prod._year', this.postForm.value.prodYear);
-      formData.append('category', this.postForm.value.category);
-      formData.append('leather_interior', this.postForm.value.leatherInterior ? 'Yes' : 'No');
-      formData.append('fuel_type', this.postForm.value.fuelType);
-      formData.append('engine_volume', this.postForm.value.engineVolume.toString());
-      formData.append('mileage', `${this.postForm.value.mileage} km`);
-      formData.append('cylinders', this.postForm.value.cylinders.toString());
-      formData.append('gear_box_type', this.postForm.value.gearBoxType);
-      formData.append('drive_wheels', this.postForm.value.driveWheels);
-      formData.append('doors', this.postForm.value.doors);
-      formData.append('wheel', this.postForm.value.wheel);
-      formData.append('color', this.postForm.value.color);
-      formData.append('airbags', this.postForm.value.airbags.toString());
-      formData.append('isTurbo', this.postForm.value.isTurbo ? '1' : '0');
 
-
-      this.aiModelService.makePrediction(formData).subscribe(
+      this.aiModelService.makePrediction(carPredictionData).subscribe(
         (response: number) => {
           console.log('Prediction result:', response);
           if (this.sellingPost && this.sellingPost.car) {

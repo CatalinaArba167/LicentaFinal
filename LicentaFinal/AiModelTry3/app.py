@@ -1,15 +1,15 @@
-from flask import Flask
 from flask import Flask, request, jsonify
 import pandas as pd
 import numpy as np
 import joblib
-
+import pickle
 
 app = Flask(__name__)
-CORS(app)
 
 # Load the trained model, scaler, encoder, and columns
 rf_model = joblib.load('RandomForest_model.joblib')
+# rf_model = pickle.load(open('RandomForest_model.pkl', 'rb'))
+
 scaler = joblib.load('scaler.joblib')
 encoder = joblib.load('encoder.joblib')
 train_columns = joblib.load('train_columns.joblib')
@@ -46,14 +46,27 @@ def preprocess_input(input_df):
 
     return input_df_scaled
 
+@app.after_request
+def after_request(response):
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+    response.headers.add('Access-Control-Allow-Methods', 'GET,POST,OPTIONS')
+    return response
+
 @app.route('/predict', methods=['POST'])
-def hello_world():  # put application's code here
-    data = request.json
+def predict():
+    data = request.json or {}
     input_df = pd.DataFrame([data])
+    print(input_df)
     processed_input = preprocess_input(input_df)
     predicted_price = rf_model.predict(processed_input)
-    return jsonify( int(predicted_price[0]))
+    predicted_value = int(predicted_price[0])
+    print(predicted_value)
+    return jsonify(predicted_value)
 
+@app.route('/predict', methods=[ 'OPTIONS'])
+def handle_browser():
+    return '', 200
 
 if __name__ == '__main__':
     app.run()

@@ -180,12 +180,32 @@
 
     <div class="section">
       <h3 class="section-title">Pricing</h3>
-      <mat-form-field class="dark-input" appearance="fill">
-        <mat-label>Price</mat-label>
-        <input matInput type="number" placeholder="Enter price" formControlName="price">
-        <mat-error *ngIf="postForm.get('price')?.errors?.['required']">Price is required.</mat-error>
-      </mat-form-field>
+      <div class="short-column">
+        <mat-form-field class="dark-input" appearance="fill">
+          <mat-label>Price</mat-label>
+          <input matInput type="number" placeholder="Enter price" formControlName="price">
+          <mat-error *ngIf="postForm.get('price')?.errors?.['required']">Price is required.</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="multiple-columns" style="justify-content: space-between">
+        <div>
+          <h4 class="section-title ai_disclaimer">
+            <mat-icon>star</mat-icon>
+            Use AI to predict a price for your car
+          </h4>
+          <div class="section-title"
+               *ngIf="postForm.get('predictedPrice')?.value != null && postForm.get('predictedPrice')?.value != 0">
+            {{ "The predicted price is " + formatNumber(postForm.get('predictedPrice')?.value) }}
+          </div>
+        </div>
+        <div class="generate-section">
+          <button (click)="predictThePrice()" class="post-button green-button" [disabled]="!postForm.valid">Predict the
+            price
+          </button>
+        </div>
+      </div>
     </div>
+
 
     <div class="button-section">
       <button type="submit" class="post-button red-button" [disabled]="!postForm.valid">Post</button>
