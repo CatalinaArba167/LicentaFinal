@@ -18,7 +18,7 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ],
-        include: path.resolve(__dirname, '../app')
+        include: path.resolve(__dirname, '../src/app')
       }
     ]
   }

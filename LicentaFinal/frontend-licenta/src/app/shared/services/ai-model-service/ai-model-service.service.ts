@@ -12,7 +12,24 @@ export class AiModelServiceService {
 
   constructor(private http: HttpClient) { }
 
-  makePrediction(carPredictionData: AiModel): Observable<number> {
+  makePrediction(carPredictionData: {
+    color: any;
+    wheel: any;
+    leather_interior: number;
+    airbags: any;
+    drive_wheels: any;
+    cylinders: any;
+    manufacturer: any;
+    doors: any;
+    gear_box_type: any;
+    engine_volume: number;
+    is_turbo: number;
+    model: any;
+    "prod._year": any;
+    category: any;
+    fuel_type: any;
+    mileage: number
+  }): Observable<number> {
     console.log(carPredictionData);
     return this.http.post<number>(`${environment.aiModelUrl}/predict`, carPredictionData);
   }

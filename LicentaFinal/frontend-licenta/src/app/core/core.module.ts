@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {LoginComponent} from "./components/login/login.component";
+import {LoginComponent} from "../core/components/login/login.component";
 import {MaterialModule} from "../material.module";
-import { HeaderComponent } from './components/header/header.component';
-import {MatIconModule} from "@angular/material/icon";
+import { HeaderComponent } from '../core/components/header/header.component';
 import {HttpClientModule} from "@angular/common/http";
 import {RouterLink} from "@angular/router";
 

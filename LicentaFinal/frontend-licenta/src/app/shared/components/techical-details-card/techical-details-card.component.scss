@@ -1,8 +1,7 @@
-@import "src/scss/utils/variables";
-@import "src/scss/components/button";
+@import "../../../../../src/scss/utils/variables";
+@import "../../../../../src/scss/components/button";
 
-
-.techical-details-section {
+.technical-details-section {
   width: 74vw;
   height: 30vh;
   box-shadow: 0 2px 8px $medium-gray;

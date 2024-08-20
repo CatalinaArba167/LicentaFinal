@@ -161,6 +161,7 @@ export class EditSellingPostComponent implements OnInit {
         postDate: new Date().toISOString(),
       };
 
+
       const formData: FormData = new FormData();
       formData.append('sellingPost', new Blob([JSON.stringify(postData)], {type: 'application/json'}));
 
@@ -181,6 +182,8 @@ export class EditSellingPostComponent implements OnInit {
 
         formData.append('sellingPictures', file);
       });
+
+      console.log(formData)
 
 
       this.sellingPostService.updateSellingPost(formData).subscribe({
@@ -229,10 +232,10 @@ export class EditSellingPostComponent implements OnInit {
         model: this.postForm.value.model,
         'prod._year': this.postForm.value.prodYear,
         category: this.postForm.value.category,
-        leather_interior: this.postForm.value.leatherInterior ? 'Yes' : 'No',
+        leather_interior: this.postForm.value.leatherInterior? 1:0,
         fuel_type: this.postForm.value.fuelType,
         engine_volume: this.postForm.value.engineVolume,
-        mileage: `${this.postForm.value.mileage} km`,
+        mileage: this.postForm.value.mileage,
         cylinders: this.postForm.value.cylinders,
         gear_box_type: this.postForm.value.gearBoxType,
         drive_wheels: this.postForm.value.driveWheels,
@@ -240,7 +243,7 @@ export class EditSellingPostComponent implements OnInit {
         wheel: this.postForm.value.wheel,
         color: this.postForm.value.color,
         airbags: this.postForm.value.airbags,
-        isTurbo: this.postForm.value.isTurbo ? 1 : 0
+        is_turbo: this.postForm.value.isTurbo ? 1 : 0
       };
 
 
@@ -248,7 +251,7 @@ export class EditSellingPostComponent implements OnInit {
         (response: number) => {
           console.log('Prediction result:', response);
           if (this.sellingPost && this.sellingPost.car) {
-            // this.sellingPost.car.predictedPrice = response.predicted_price;
+            this.sellingPost.car.predictedPrice = response;
           }
           this.postForm.patchValue({predictedPrice: response});
         },

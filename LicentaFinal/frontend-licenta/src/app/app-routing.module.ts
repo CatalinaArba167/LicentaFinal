@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {LoginComponent} from "./core/components/login/login.component";
-import {ChatComponent} from "./pages/chat/chat.component";
 import {CreateSellingPostComponent} from "./pages/create-selling-post/create-selling-post.component";
 import {AllPostsComponent} from "./pages/all-posts/all-posts.component";
 import {MyCarCardComponent} from "./shared/components/my-car-card/my-car-card.component";
@@ -18,10 +17,6 @@ const routes: Routes = [
   {
     path: 'post',
     component:CreateSellingPostComponent
-  },
-  {
-    path: 'chat',
-    component: ChatComponent,
   },
   {
     path: 'login',

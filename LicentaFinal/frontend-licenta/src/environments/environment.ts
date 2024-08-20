@@ -1,6 +1,5 @@
 export const environment = {
-  aiModelUrl:'http://localhost:5000',
-  regularUrl: 'http://localhost:8080',
-  apiUrl: 'http://localhost:8080/api',
-  baseUrl: 'http://localhost:4200'
+  aiModelUrl:'http://TerraformLoadBalancer-355645363.us-east-1.elb.amazonaws.com:5000',
+  regularUrl: 'http://TerraformLoadBalancer-355645363.us-east-1.elb.amazonaws.com:8080',
+  apiUrl: 'http://TerraformLoadBalancer-355645363.us-east-1.elb.amazonaws.com:8080/api',
 };

@@ -6,6 +6,7 @@ import {AuthenticationService} from "../../core/services/authentication.service"
 import {Router} from "@angular/router";
 import {formatNumber} from "@angular/common";
 import {AiModelServiceService} from "../../shared/services/ai-model-service/ai-model-service.service";
+import {preserveWhitespacesDefault} from "@angular/compiler";
 
 @Component({
   selector: 'app-create-selling-post',
@@ -16,6 +17,7 @@ export class CreateSellingPostComponent {
   postForm: FormGroup;
   previewImages: string[] = [];
   selectedFiles: File[] = [];
+  predictedPrice:number=0;
 
   fuelTypes: string[] = ['Diesel', 'Hybrid', 'Petrol', 'Electric'];
   gearBoxTypes: string[] = ['Automatic', 'Tiptronic', 'Manual', 'Variator'];
@@ -167,10 +169,10 @@ export class CreateSellingPostComponent {
         model: this.postForm.value.model,
         'prod._year': this.postForm.value.prodYear,
         category: this.postForm.value.category,
-        leather_interior: this.postForm.value.leatherInterior ? 'Yes' : 'No',
+        leather_interior: this.postForm.value.leatherInterior ? 1 : 0,
         fuel_type: this.postForm.value.fuelType,
         engine_volume: this.postForm.value.engineVolume,
-        mileage: `${this.postForm.value.mileage} km`,
+        mileage: this.postForm.value.mileage,
         cylinders: this.postForm.value.cylinders,
         gear_box_type: this.postForm.value.gearBoxType,
         drive_wheels: this.postForm.value.driveWheels,
@@ -178,13 +180,14 @@ export class CreateSellingPostComponent {
         wheel: this.postForm.value.wheel,
         color: this.postForm.value.color,
         airbags: this.postForm.value.airbags,
-        isTurbo: this.postForm.value.isTurbo ? 1 : 0
+        is_turbo: this.postForm.value.isTurbo ? 1 : 0
       };
 
 
       this.aiModelService.makePrediction(carPredictionData).subscribe(
         (response: number) => {
           console.log('Prediction result:', response);
+          this.predictedPrice=response;
           this.postForm.patchValue({predictedPrice: response});
         },
         (error) => {

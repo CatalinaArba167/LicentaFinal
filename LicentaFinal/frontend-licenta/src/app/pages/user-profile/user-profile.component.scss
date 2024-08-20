@@ -1,5 +1,6 @@
-@import "src/scss/utils/variables";
-@import "src/scss/components/inputs";
+@import "../../../../src/scss/utils/variables";
+@import "../../../../src/scss/components/inputs";
+
 .profile-layout {
   display: flex;
   flex-direction: column;
@@ -170,7 +171,8 @@ button::before {
       &::placeholder {
         font-size: 0.875rem;
         color: red;
-      }
+           }
+
     }
   }
 

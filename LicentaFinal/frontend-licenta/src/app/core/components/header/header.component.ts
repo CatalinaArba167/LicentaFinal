@@ -16,9 +16,4 @@ export class HeaderComponent {
     this.authService.logout();
   }
 
-  navigateToChat() {
-    this.router.navigate([
-      PATHS.CHAT
-    ]);
-  }
 }

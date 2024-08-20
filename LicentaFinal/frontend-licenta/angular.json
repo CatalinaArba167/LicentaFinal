@@ -35,9 +35,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/ngx-toastr/toastr.css",
-              "src/scss/components/_custom-toastr.scss",
-              "src/scss/components/_inputs.scss"
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
@@ -51,8 +49,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "12kb",
+                  "maximumError": "12kb"
                 }
               ],
               "outputHashing": "all"

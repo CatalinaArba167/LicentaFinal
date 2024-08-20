@@ -3,10 +3,10 @@ export interface AiModel {
   model: string;
   'prod._year': number;
   category: string;
-  leather_interior: string;
+  leather_interior: number;
   fuel_type: string;
   engine_volume: number;
-  mileage: string;
+  mileage: number;
   cylinders: number;
   gear_box_type: string;
   drive_wheels: string;
@@ -14,5 +14,5 @@ export interface AiModel {
   wheel: string;
   color: string;
   airbags: number;
-  isTurbo: number;
+  is_turbo: number;
 }

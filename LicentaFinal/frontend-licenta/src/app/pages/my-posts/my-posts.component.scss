@@ -1,7 +1,6 @@
-// Importing necessary SCSS files
-@import "src/scss/utils/variables";
-@import "src/scss/components/button";
-@import "src/scss/components/custom-toastr";
+@import "../../../../src/scss/utils/variables";
+@import "../../../../src/scss/components/button";
+@import "../../../../src/scss/components/custom-toastr";
 
 .layout-home {
   display: flex;

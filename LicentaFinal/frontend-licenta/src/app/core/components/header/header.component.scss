@@ -1,4 +1,4 @@
-@import "src/scss/utils/variables";
+@import "../../../../scss/utils/_variables.scss";
 
 .fixed-header {
   position: fixed;
@@ -34,8 +34,10 @@
   gap: 3vw;
 }
 
+
 .header-logo-container {
   display: flex;
+  padding-left:200px;
   align-items: center;
   position: absolute;
   left: 50%;

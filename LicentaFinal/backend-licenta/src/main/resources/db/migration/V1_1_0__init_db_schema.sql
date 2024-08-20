@@ -27,27 +27,6 @@ CREATE TABLE IF NOT EXISTS profile_picture
 );
 
 
-CREATE TABLE IF NOT EXISTS chat
-(
-    id       UUID PRIMARY KEY,
-    user1_id UUID,
-    user2_id UUID,
-    FOREIGN KEY (user1_id) REFERENCES user_table (id),
-    FOREIGN KEY (user2_id) REFERENCES user_table (id)
-);
-
-
-CREATE TABLE IF NOT EXISTS message
-(
-    id        UUID PRIMARY KEY,
-    sender_id UUID,
-    chat_id   UUID,
-    content   varchar(1000),
-    sent_at   timestamp,
-    FOREIGN KEY (sender_id) REFERENCES user_table (id),
-    FOREIGN KEY (chat_id) REFERENCES chat (id)
-);
-
 CREATE TABLE IF NOT EXISTS car
 (
     id               UUID PRIMARY KEY,

@@ -1,9 +1,9 @@
 <app-header></app-header>
 <div class="create-post-layout">
   <div class="under-header"></div>
-  <h2 class="page-title">CREATE A POST</h2>
+  <h2 class="page-title">SELL A CAR</h2>
 
-  <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="postForm">
     <div class="section">
       <h3 class="section-title">Post Information</h3>
       <mat-form-field class="title-field dark-input" appearance="fill">
@@ -194,8 +194,8 @@
             Use AI to predict a price for your car
           </h4>
           <div class="section-title"
-               *ngIf="postForm.get('predictedPrice')?.value != null && postForm.get('predictedPrice')?.value != 0">
-            {{ "The predicted price is " + formatNumber(postForm.get('predictedPrice')?.value) }}
+               *ngIf="predictedPrice != null && predictedPrice!= 0">
+            {{ "The predicted price is " + formatNumber(predictedPrice) }}
           </div>
         </div>
         <div class="generate-section">
@@ -208,7 +208,7 @@
 
 
     <div class="button-section">
-      <button type="submit" class="post-button red-button" [disabled]="!postForm.valid">Post</button>
+      <button (click)="onSubmit()" type="submit" class="post-button red-button" [disabled]="!postForm.valid">Post</button>
     </div>
   </form>
 </div>

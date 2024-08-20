@@ -1,11 +1,11 @@
-@import "src/scss/utils/variables";
-@import "src/scss/components/button";
-@import "src/scss/components/custom-toastr";
+@import "../../../../../src/scss/utils/_variables.scss";
+@import "../../../../../src/scss/components/_button.scss";
+@import "../../../../../src/scss/components/_custom-toastr.scss";
 
 .form-container {
   display: flex;
   justify-content: left;
-  align-items: start;
+  align-items: flex-start;
   height: 100vh;
   position: relative;
   width: 100vw;
@@ -25,11 +25,15 @@
 
 .background-content {
   width: 70vw;
-  background: linear-gradient(to left, rgba(0, 0, 0, 0) 90%, $primary-black 100%),linear-gradient(to right, rgba(0, 0, 0, 0) 90%, $primary-black 100%), url('../../../../assets/login_page_wallpaper.jpg') no-repeat center center;
+  background:
+    linear-gradient(to left, rgba(0, 0, 0, 0) 90%, $primary-black 100%),
+    linear-gradient(to right, rgba(0, 0, 0, 0) 90%, $primary-black 100%),
+    url('../../../../assets/login_page_wallpaper.jpg') no-repeat center center;
   background-size: cover;
   height: 100vh;
   z-index: 1;
 }
+
 .header-logo {
   display: flex;
   justify-content: center;
@@ -97,21 +101,21 @@ form {
   margin-top: 0.5vw;
   text-align: center;
   color: $primary-white;
+
   a {
     color: $neon-orange;
     cursor: pointer;
+
     &:hover {
       text-decoration: underline;
       color: $neon-orange-darker;
     }
   }
 }
+
 .input-error {
   color: $error-red;
   font-size: 0.8vw;
   text-align: center;
   margin-top: 0.4vw;
 }
-
-
-

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChatComponent } from './chat/chat.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {CoreModule} from "../core/core.module";
 import { CreateSellingPostComponent } from './create-selling-post/create-selling-post.component';
@@ -17,7 +16,6 @@ import { SellingPostDetailsComponent } from './selling-post-details/selling-post
 
 @NgModule({
   declarations: [
-    ChatComponent,
     CreateSellingPostComponent,
     AllPostsComponent,
     MyPostsComponent,
